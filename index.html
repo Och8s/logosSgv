@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            flex-direction: column;
+        }
+        .logo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .logo-container img {
+            width: 100px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .logo-container img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animación Olimpiada */
+        .olimpiada {
+            width: 100px;
+            height: 100px;
+            animation: example3 6s infinite; /* Añadir la animación con tiempo total de 6s */
+            animation-delay: 3s;
+        }
+
+        .apple {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-direction: reverse;
+        }
+
+        @keyframes example2 {
+            0% {background-color:rgb(103, 81, 81); left:0px; top:0px;}
+            10% {background-color:rgb(99, 99, 74); top:150px; left:0px;}
+            30% {background-color:rgb(115, 115, 141); left:500px; top:150px;}
+            40% {background-color:rgb(77, 97, 77); left:500px; top:-150px;}
+            60% {background-color:rgb(77, 97, 77); left:-400px; top:-150px;}
+            75% {background-color:rgb(99, 78, 78); left:-400px; top:150px;}
+            85% {background-color:rgb(99, 78, 78); left: 0px; top:150px;}
+            100% {background-color:rgb(61, 63, 77); left:0px; top:0px;}
+        }
+
+        .cotxe {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: red;
+            animation-name: example2;
+            animation-duration: 10s;
+        }
+
+        /* Animación para el logo de Superman */
+        .super {
+            width: 100px;
+            height: 100px;
+            animation-name: example;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        .nike {
+            width: 500px;
+            height: 50px;
+            animation-name: example4;
+            animation-duration: 4s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes example {
+            from {
+                background-color: rgb(30, 185, 241);
+                transform: scaleX(1); 
+            }
+            50% {
+                background-color: rgb(14, 14, 13);
+                transform: scaleX(-1); /* dar la vuelta */
+            }
+            to {
+                background-color: rgb(30, 185, 241);
+                transform: scaleX(1); 
+            }
+
+        }
+
+        @keyframes example3 {
+            0% {
+                transform: rotate(0deg);
+                background-color: black;
+            }
+            100% {
+                transform: rotate(360deg);
+                background-color: rgb(245, 243, 243);
+            }
+        }
+
+        @keyframes example4 {
+            from {
+                transform: scale(1);
+            }
+            to {
+                transform: scale(2);
+            }
+        }
+
+        /* Animación de transparencia para el SVG */
+        .cono {
+            animation: example5 3s infinite alternate;
+        }
+
+        @keyframes example5 {
+            0% {
+                opacity: 1; /* Visibilidad total */
+            }
+            50% {
+                opacity: 0; /* Invisibilidad */
+            }
+            100% {
+                opacity: 1; /* Vuelve a ser visible */
+            }
+        }
+       
+        /* Contenedor para alinear los SVGs en línea */
+        .inline-container {
+            position: absolute;
+            top: 0;
+            right: 50%;
+            transform: translateX(50%);
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            padding: 10px;
+            z-index: 10;
+        }
+        .inline-container svg {
+            width: 80px; 
+            height: 80px;
+        }
+
+         /* Animación para el latido del corazón en una imagen SVG */
+         .corazon-image {
+            animation: example6 1.5s infinite;
+        }
+
+        /* Animación para el latido del corazón */
+        @keyframes example6 {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px; /* Espacio entre los logos y los textos */
+        }
+
+        .star-container {
+            position: absolute;
+            bottom: 20px; /* Esto mueve las estrellas hacia abajo */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 9999; /* Asegura que las estrellas estén por encima de todo */
+        }
+
+        /* Para no tener que crear varias estrellas...y solo ver el contenido */
+        /* clip-path te permite definir una forma personalizada que recorta el contenido
+         de un elemento, de modo que solo se vea la parte dentro de esa forma
+          (en este caso, una estrella) */
+        .starBlue {
+            width: 50px;
+            height: 50px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background-color: rgb(6, 90, 193);
+            animation: example7 2s infinite alternate;
+        }
+        .starRed {
+            width: 50px;
+            height: 50px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            background-color: rgb(255, 17, 0);
+            animation: example8 2s infinite alternate;
+        }
+
+        @keyframes example7 {
+            0% {
+                background-color: rgb(255, 17, 0); /* Rojo */
+            }
+            50% {
+                background-color: rgb(6, 90, 193); /* Azul */
+            }
+            100% {
+                background-color: rgb(255, 17, 0); /* Rojo */
+            }
+        }
+
+        @keyframes example8 {
+            0% {
+                background-color: rgb(6, 90, 193); /* Rojo */
+            }
+            50% {
+                background-color: rgb(255, 17, 0); /* Azul */
+            }
+            100% {
+                background-color: rgb(6, 90, 193); /* Rojo */
+            }
+        }
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 65px; 
+        }
+
+
+    </style>
+</head>
+<body> 
+
+    <div class="inline-container">
+        <h1>I</h1>    
+        <img src="corazon.webp" alt="Corazon" class="corazon-image" width="80" height="80">
+        <h1>America</h1>
+    </div>
+    <!-- Imagen creada -->
+    <svg class="cono" xmlns="http://www.w3.org/2000/svg" width="126" height="320" viewBox="0 -120 100 300" style="position: absolute; top: 112px; left: 50.7%;">
+        <polygon points="110,-165 86,65 -5,65" fill="black" />
+        <ellipse cx="40" cy="70" rx="48" ry="30" fill="black" />
+    </svg>
+    <!-- Imagen actividad anterior -->
+    <div class="logo-container">
+        <img src="apple.svg" alt="Logo 1" class="apple">
+        <img src="halterofilia.svg" alt="Logo 2" class="olimpiada">
+        <img src="logo.svg" alt="Logo 3" class="cotxe">
+        <img src="batman.svg" alt="Logo 4">
+        <img src="superman.svg" alt="Logo 5" class="super">
+        <img src="nike.svg" alt="Logo 6" class="nike">
+    </div>
+
+    <!-- Tres estrellas centradas en la parte inferior -->
+    <div class="star-container">
+        <div class="starBlue"></div>
+        <div class="starRed"></div>
+        <div class="starBlue"></div>
+        <div class="starRed"></div>
+        <div class="starBlue"></div>
+
+    </div>
+
+</body>
+</html>
